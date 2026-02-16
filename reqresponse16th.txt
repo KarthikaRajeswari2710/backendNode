@@ -1,0 +1,40 @@
+1) What is Response Object in Express?
+ res object is used to send response from server to client.
+
+2) Different methods in Response Object?
+ Common methods are res.send(), res.json(), res.status(), res.redirect(), res.sendFile().
+
+3) How res object available inside route? Import panna venduma?
+ Express automatically provides req and res inside route handler; we don’t import it manually.
+
+4) What kind of data can be sent using res?
+ We can send text, JSON, HTML, files, or status messages.
+
+5) Use of status codes?
+ Status codes tell the client whether request is success, error, or failed.
+
+6) What is status code? Example?
+ Status code is a 3-digit number showing request result, like 200 (OK), 201 (Created), 404 (Not Found), 500 (Server Error).
+
+7)API on port 5000 sending “Success Done”
+
+import express from "express";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Success Done");
+});
+
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});
+
+
+8) API sending status 201 with message
+
+app.get("/create", (req, res) => {
+  res.status(201).json({
+    message: "Created Successfully"
+  });
+});
